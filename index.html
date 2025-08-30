@@ -20,24 +20,6 @@
             --joastria-very-dark-gold: #6A543C; /* A new, darker gold for strong contrast */
         }
 
-        /* Custom Tailwind configuration */
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'joastria-gold': 'var(--joastria-gold)',
-                        'joastria-pink': 'var(--joastria-pink)',
-                        'joastria-dark-gold': 'var(--joastria-dark-gold)',
-                        'joastria-very-dark-gold': 'var(--joastria-very-dark-gold)',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Cormorant Garamond', 'serif']
-                    }
-                }
-            }
-        }
-
         /* Custom CSS for the smooth pop-out effect */
         .collections-menu {
             transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -610,6 +592,25 @@
     </div>
 
     <script>
+        /* Custom Tailwind configuration */
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'joastria-gold': 'var(--joastria-gold)',
+                        'joastria-pink': 'var(--joastria-pink)',
+                        'joastria-dark-gold': 'var(--joastria-dark-gold)',
+                        'joastria-very-dark-gold': 'var(--joastria-very-dark-gold)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif']
+                    }
+                }
+            }
+        }
+
+        // State variables
         let wishlist = [];
         let cart = [];
         const productData = {
