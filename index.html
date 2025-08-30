@@ -4,10 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JoAstria Charms</title>
+        <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/Logo/favicon/favicon.ico">
+    <!-- For modern browsers -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/Logo/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/Logo/favicon/favicon-16x16.png">
+    <!-- For iOS devices -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/Logo/favicon/apple-touch-icon.png">
+    <!-- Web manifest -->
+    <link rel="manifest" href="./site.webmanifest">
     <!-- Use a Google Font for a touch of elegance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,24 +28,6 @@
             --joastria-pink: #F8E7F0;
             --joastria-dark-gold: #8B6B48;
             --joastria-very-dark-gold: #6A543C; /* A new, darker gold for strong contrast */
-        }
-
-        /* Custom Tailwind configuration */
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'joastria-gold': 'var(--joastria-gold)',
-                        'joastria-pink': 'var(--joastria-pink)',
-                        'joastria-dark-gold': 'var(--joastria-dark-gold)',
-                        'joastria-very-dark-gold': 'var(--joastria-very-dark-gold)',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Cormorant Garamond', 'serif']
-                    }
-                }
-            }
         }
 
         /* Custom CSS for the smooth pop-out effect */
@@ -81,18 +73,19 @@
                 </button>
                 
                 <!-- Main Navigation Links -->
-                <nav class="relative flex flex-wrap justify-center md:justify-end items-center gap-4 md:gap-6">
-                    <a href="#" onclick="navigate('home-page')" class="text-base md:text-xl font-medium text-joastria-very-dark-gold hover:text-joastria-gold transition-colors duration-300">Home</a>
+                <nav class="flex flex-wrap justify-center md:justify-end items-center gap-4 md:gap-6">
+                    <!-- <a href="#" onclick="navigate('home-page')" class="text-base md:text-xl font-medium text-joastria-very-dark-gold hover:text-joastria-gold transition-colors duration-300">Home</a> -->
                     <!-- Collections with pop-out menu -->
-                    <div class="group relative">
-                        <span class="text-base md:text-xl font-medium text-joastria-very-dark-gold cursor-pointer hover:text-joastria-gold transition-colors duration-300">Collections</span>
-                        <ul class="collections-menu absolute left-1/2 transform -translate-x-1/2 mt-2 w-48 bg-white rounded-lg shadow-xl py-2 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-0 transition-all duration-300 ease-out z-40">
+                    <!-- Corrected structure: `relative` parent on the `span` to control the hover area precisely -->
+                    <!-- <span id="collections-dropdown-trigger" class="relative text-base md:text-xl font-medium text-joastria-very-dark-gold cursor-pointer hover:text-joastria-gold transition-colors duration-300">
+                        Collections
+                        <ul id="collections-dropdown-menu" class="collections-menu absolute left-1/2 transform -translate-x-1/2 mt-2 w-48 bg-white rounded-lg shadow-xl py-2 opacity-0 scale-95 transition-all duration-300 ease-out z-40 hidden">
                             <li><button onclick="navigate('scrunchies-page')" class="block w-full text-left px-4 py-2 text-joastria-very-dark-gold hover:bg-gray-100 rounded-md transition-colors duration-200">Scrunchies</button></li>
                             <li><button onclick="navigate('bands-page')" class="block w-full text-left px-4 py-2 text-joastria-very-dark-gold hover:bg-gray-100 rounded-md transition-colors duration-200">Bands</button></li>
                             <li><button onclick="navigate('bows-page')" class="block w-full text-left px-4 py-2 text-joastria-very-dark-gold hover:bg-gray-100 rounded-md transition-colors duration-200">Bows</button></li>
                             <li><button onclick="navigate('embroideries-page')" class="block w-full text-left px-4 py-2 text-joastria-very-dark-gold hover:bg-gray-100 rounded-md transition-colors duration-200">Embroideries</button></li>
                         </ul>
-                    </div>
+                    </span> -->
                     <button onclick="showModal('wishlist-modal')" class="text-base md:text-xl font-medium text-joastria-very-dark-gold hover:text-red-500 transition-colors duration-300" aria-label="Wishlist">
                         <i class="fa-solid fa-heart"></i>
                     </button>
@@ -596,7 +589,6 @@
     </div>
 
     <script>
-        
         /* Custom Tailwind configuration */
         tailwind.config = {
             theme: {
@@ -606,17 +598,20 @@
                         'joastria-pink': 'var(--joastria-pink)',
                         'joastria-dark-gold': 'var(--joastria-dark-gold)',
                         'joastria-very-dark-gold': 'var(--joastria-very-dark-gold)',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Cormorant Garamond', 'serif']
                     }
                 }
             }
         }
-        
+
+        /* JavaScript code */
         let wishlist = [];
         let cart = [];
+        let hideTimer;
+
+        const collectionsTrigger = document.getElementById('collections-dropdown-trigger');
+        const collectionsMenu = document.getElementById('collections-dropdown-menu');
+        
+        // This object holds all the product data
         const productData = {
           '1': { id: 1, name: "Pink Silk Scrunchie", price: 15.00, image: "https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+1" },
           '2': { id: 2, name: "Classic Scrunchie", price: 12.50, image: "https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+2" },
@@ -655,6 +650,35 @@
             localStorage.setItem('cart', JSON.stringify(cart));
             localStorage.setItem('wishlist', JSON.stringify(wishlist));
         }
+
+        // New functions to control the collections menu visibility
+        function showCollectionsMenu() {
+            clearTimeout(hideTimer);
+            collectionsMenu.classList.remove('hidden', 'opacity-0', 'scale-95');
+            collectionsMenu.classList.add('opacity-100', 'scale-100');
+        }
+
+        function hideCollectionsMenu() {
+            hideTimer = setTimeout(() => {
+                collectionsMenu.classList.remove('opacity-100', 'scale-100');
+                collectionsMenu.classList.add('opacity-0', 'scale-95');
+                setTimeout(() => {
+                    collectionsMenu.classList.add('hidden');
+                }, 300); // Match transition duration
+            }, 100); // Short delay to allow mouse to move to dropdown
+        }
+        
+        // Function to clear the hide timer
+        function clearHideTimer() {
+            clearTimeout(hideTimer);
+        }
+
+        // Add event listeners for the collections dropdown
+        collectionsTrigger.addEventListener('mouseenter', showCollectionsMenu);
+        collectionsTrigger.addEventListener('mouseleave', hideCollectionsMenu);
+        collectionsMenu.addEventListener('mouseenter', clearHideTimer);
+        collectionsMenu.addEventListener('mouseleave', hideCollectionsMenu);
+
 
         // Function to handle sending the contact email with phone number
         function sendContactEmail() {
