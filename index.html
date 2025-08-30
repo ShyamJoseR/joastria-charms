@@ -3,68 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JoAstria Charms</title>
-    <!-- Use a Google Font for a touch of elegance -->
+    <title>JoAstria Charms - Handmade Hair Accessories</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Define custom Tailwind colors and font family */
-        :root {
-            --joastria-gold: #B88E5E;
-            --joastria-pink: #F8E7F0;
-            --joastria-dark-gold: #8B6B48;
-            --joastria-very-dark-gold: #6A543C; /* A new, darker gold for strong contrast */
-        }
-
-        /* Custom Tailwind configuration */
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'joastria-gold': 'var(--joastria-gold)',
-                        'joastria-pink': 'var(--joastria-pink)',
-                        'joastria-dark-gold': 'var(--joastria-dark-gold)',
-                        'joastria-very-dark-gold': 'var(--joastria-very-dark-gold)',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Cormorant Garamond', 'serif']
-                    }
-                }
-            }
-        }
-
-        /* Custom CSS for the smooth pop-out effect */
-        .collections-menu {
-            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-            transform: translateY(10px);
-        }
-
-        /* Custom scrollbar for better aesthetics */
-        body::-webkit-scrollbar {
-            width: 8px;
-        }
-        body::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        body::-webkit-scrollbar-thumb {
-            background: var(--joastria-gold);
-            border-radius: 4px;
-        }
-        body::-webkit-scrollbar-thumb:hover {
-            background: var(--joastria-dark-gold);
-        }
-
-        /* Modal styling */
-        .modal {
-            transition: opacity 0.3s ease-in-out;
-        }
-
-    </style>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
 </head>
 <body class="bg-stone-50 text-joastria-very-dark-gold font-sans">
 
@@ -85,16 +31,15 @@
                 <nav class="relative">
                     <ul class="flex items-center space-x-6 md:space-x-10">
                         <li>
-                            <a href="#" onclick="navigate('home-page')" class="text-lg md:text-xl font-medium text-joastria-very-dark-gold hover:text-joastria-gold transition-colors duration-300">Home</a>
+                            <a href="index.html" class="text-lg md:text-xl font-medium text-joastria-very-dark-gold hover:text-joastria-gold transition-colors duration-300">Home</a>
                         </li>
                         <!-- Collections with pop-out menu -->
                         <li class="group relative">
                             <span class="text-lg md:text-xl font-medium text-joastria-very-dark-gold cursor-pointer hover:text-joastria-gold transition-colors duration-300">Collections</span>
                             <ul class="collections-menu absolute left-1/2 transform -translate-x-1/2 mt-2 w-48 bg-white rounded-lg shadow-xl py-2 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-0 transition-all duration-300 ease-out z-40">
-                                <li><button onclick="navigate('scrunchies-page')" class="block w-full text-left px-4 py-2 text-joastria-very-dark-gold hover:bg-gray-100 rounded-md transition-colors duration-200">Scrunchies</button></li>
-                                <li><button onclick="navigate('bands-page')" class="block w-full text-left px-4 py-2 text-joastria-very-dark-gold hover:bg-gray-100 rounded-md transition-colors duration-200">Bands</button></li>
-                                <li><button onclick="navigate('bows-page')" class="block w-full text-left px-4 py-2 text-joastria-very-dark-gold hover:bg-gray-100 rounded-md transition-colors duration-200">Bows</button></li>
-                                <li><button onclick="navigate('embroideries-page')" class="block w-full text-left px-4 py-2 text-joastria-very-dark-gold hover:bg-gray-100 rounded-md transition-colors duration-200">Embroideries</button></li>
+                                <li><a href="pages/scrunchies.html" class="block w-full text-left px-4 py-2 text-joastria-very-dark-gold hover:bg-gray-100 rounded-md transition-colors duration-200">Scrunchies</a></li>
+                                <li><a href="pages/bands.html" class="block w-full text-left px-4 py-2 text-joastria-very-dark-gold hover:bg-gray-100 rounded-md transition-colors duration-200">Bands</a></li>
+                                <li><a href="pages/bows.html" class="block w-full text-left px-4 py-2 text-joastria-very-dark-gold hover:bg-gray-100 rounded-md transition-colors duration-200">Bows</a></li>
                             </ul>
                         </li>
                         <li>
@@ -137,7 +82,7 @@
                     <div class="p-4 text-center">
                         <h3 class="text-2xl font-serif text-joastria-dark-gold mb-2">Scrunchies</h3>
                         <p class="text-joastria-very-dark-gold text-sm">Elegant and comfortable hair ties.</p>
-                        <button onclick="navigate('scrunchies-page')" class="mt-4 px-6 py-2 text-sm font-medium bg-joastria-pink text-joastria-very-dark-gold rounded-full hover:bg-joastria-gold hover:text-white transition-colors">View Collection</button>
+                        <a href="pages/scrunchies.html" class="inline-block mt-4 px-6 py-2 text-sm font-medium bg-joastria-pink text-joastria-very-dark-gold rounded-full hover:bg-joastria-gold hover:text-white transition-colors">View Collection</a>
                     </div>
                 </div>
                 <!-- Card for Bands -->
@@ -146,7 +91,8 @@
                     <div class="p-4 text-center">
                         <h3 class="text-2xl font-serif text-joastria-dark-gold mb-2">Bands</h3>
                         <p class="text-joastria-very-dark-gold text-sm">Chic and stylish headbands.</p>
-                        <button onclick="navigate('bands-page')" class="mt-4 px-6 py-2 text-sm font-medium bg-joastria-pink text-joastria-very-dark-gold rounded-full hover:bg-joastria-gold hover:text-white transition-colors">View Collection</button></div>
+                        <a href="pages/bands.html" class="inline-block mt-4 px-6 py-2 text-sm font-medium bg-joastria-pink text-joastria-very-dark-gold rounded-full hover:bg-joastria-gold hover:text-white transition-colors">View Collection</a>
+                    </div>
                 </div>
                 <!-- Card for Bows -->
                 <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group">
@@ -154,7 +100,7 @@
                     <div class="p-4 text-center">
                         <h3 class="text-2xl font-serif text-joastria-dark-gold mb-2">Bows</h3>
                         <p class="text-joastria-very-dark-gold text-sm">Perfectly tied ribbon bows.</p>
-                        <button onclick="navigate('bows-page')" class="mt-4 px-6 py-2 text-sm font-medium bg-joastria-pink text-joastria-very-dark-gold rounded-full hover:bg-joastria-gold hover:text-white transition-colors">View Collection</button>
+                        <a href="pages/bows.html" class="inline-block mt-4 px-6 py-2 text-sm font-medium bg-joastria-pink text-joastria-very-dark-gold rounded-full hover:bg-joastria-gold hover:text-white transition-colors">View Collection</a>
                     </div>
                 </div>
                 <!-- Card for Embroideries -->
@@ -163,7 +109,7 @@
                     <div class="p-4 text-center">
                         <h3 class="text-2xl font-serif text-joastria-dark-gold mb-2">Embroideries</h3>
                         <p class="text-joastria-very-dark-gold text-sm">Delicate and detailed accessories.</p>
-                        <button onclick="navigate('embroideries-page')" class="mt-4 px-6 py-2 text-sm font-medium bg-joastria-pink text-joastria-very-dark-gold rounded-full hover:bg-joastria-gold hover:text-white transition-colors">View Collection</button>
+                        <a href="pages/embroideries.html" class="inline-block mt-4 px-6 py-2 text-sm font-medium bg-joastria-pink text-joastria-very-dark-gold rounded-full hover:bg-joastria-gold hover:text-white transition-colors">View Collection</a>
                     </div>
                 </div>
             </div>
@@ -609,280 +555,10 @@
         </div>
     </div>
 
+    <script src="scripts/app.js"></script>
     <script>
-        let wishlist = [];
-        let cart = [];
-        const productData = {
-          '1': { id: 1, name: "Pink Silk Scrunchie", price: 15.00, image: "https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+1" },
-          '2': { id: 2, name: "Classic Scrunchie", price: 12.50, image: "https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+2" },
-          '3': { id: 3, name: "Mint Scrunchie", price: 15.00, image: "https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+3" },
-          '4': { id: 4, name: "Ocean Blue Scrunchie", price: 18.00, image: "https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+4" },
-          '5': { id: 5, name: "Crimson Scrunchie", price: 15.00, image: "https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+5" },
-          '6': { id: 6, name: "Golden Scrunchie", price: 19.50, image: "https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+6" },
-          '7': { id: 7, name: "Lavender Scrunchie", price: 16.00, image: "https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+7" },
-          '8': { id: 8, name: "Emerald Scrunchie", price: 17.50, image: "https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+8" },
-          '9': { id: 9, name: "Linen Headband", price: 22.00, image: "https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+A" },
-          '10': { id: 10, name: "Patterned Band", price: 25.00, image: "https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+B" },
-          '11': { id: 11, name: "Wide Silk Band", price: 28.00, image: "https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+C" },
-          '12': { id: 12, name: "Turban Headband", price: 30.00, image: "https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+D" },
-          '13': { id: 13, name: "Ribbon Hair Bow", price: 18.00, image: "https://placehold.co/400x400/CFB8D8/B88E5E?text=Product+I" },
-          '14': { id: 14, name: "Satin Bow Set", price: 25.00, image: "https://placehold.co/400x400/CFB8D8/B88E5E?text=Product+J" },
-          '15': { id: 15, name: "Embroidered Pouch", price: 35.00, image: "https://placehold.co/400x400/D4B891/B88E5E?text=Product+X" },
-          '16': { id: 16, name: "Floral Embroidery Kit", price: 42.00, image: "https://placehold.co/400x400/D4B891/B88E5E?text=Product+Y" },
-        };
-
-        // Initialize state from localStorage
-        function initStore() {
-            try {
-                const storedCart = localStorage.getItem('cart');
-                const storedWishlist = localStorage.getItem('wishlist');
-                cart = storedCart ? JSON.parse(storedCart) : [];
-                wishlist = storedWishlist ? JSON.parse(storedWishlist) : [];
-            } catch (error) {
-                console.error("Failed to load state from local storage:", error);
-                cart = [];
-                wishlist = [];
-            }
-        }
-
-        // Save state to localStorage
-        function saveState() {
-            localStorage.setItem('cart', JSON.stringify(cart));
-            localStorage.setItem('wishlist', JSON.stringify(wishlist));
-        }
-
-        // Function to handle sending the contact email with phone number
-        function sendContactEmail() {
-            const phoneNumber = document.getElementById('contact-phone').value;
-            const message = document.getElementById('contact-message').value;
-            const subject = "Inquiry about my JoAstria Charms Wishlist and Cart";
-
-            // Format wishlist items into a string
-            const wishlistItems = wishlist.length > 0
-                ? wishlist.map((item) => `- ${item.name} ($${item.price.toFixed(2)})`).join('\n')
-                : "No items in wishlist.";
-
-            // Format cart items into a string
-            const cartItems = cart.length > 0
-                ? cart.map((item) => `- ${item.name} (${item.quantity}) - $${(item.price * item.quantity).toFixed(2)}`).join('\n')
-                : "No items in cart.";
-
-            let body = `Hello JoAstria Charms,\n\nI would like to inquire about the following items from my wishlist and shopping cart.`;
-            
-            if (phoneNumber) {
-                body += `\n\nMy phone number is: ${phoneNumber}`;
-            }
-
-            if (message) {
-                body += `\n\nMessage from customer:\n${message}`;
-            }
-
-            body += `\n\n--- Wishlist Items ---\n${wishlistItems}\n\n--- Cart Items ---\n${cartItems}\n\nI look forward to hearing from you.\n\nBest regards,`;
-
-            // Encode the body and subject for the mailto link
-            const mailtoUrl = `mailto:joastrianna@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-            // Open the default email client
-            window.location.href = mailtoUrl;
-
-            // Hide the modal after launching the email client
-            hideModal('contact-modal');
-        }
-
-        // Function to show a modal
-        function showModal(modalId) {
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                // Render the content before showing
-                if (modalId === 'wishlist-modal') {
-                    renderWishlist();
-                } else if (modalId === 'cart-modal') {
-                    renderCart();
-                }
-                
-                modal.classList.remove('hidden');
-                setTimeout(() => modal.firstElementChild.classList.remove('scale-95'), 10);
-            }
-        }
-
-        // Function to hide a modal
-        function hideModal(modalId) {
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                modal.firstElementChild.classList.add('scale-95');
-                setTimeout(() => modal.classList.add('hidden'), 300);
-            }
-        }
-
-        // Function to dynamically render the wishlist content
-        function renderWishlist() {
-            const container = document.getElementById('wishlist-items');
-            const emptyMessage = document.getElementById('empty-wishlist-message');
-            container.innerHTML = ''; // Clear existing content
-
-            if (wishlist.length === 0) {
-                emptyMessage.classList.remove('hidden');
-            } else {
-                emptyMessage.classList.add('hidden');
-                wishlist.forEach(item => {
-                    const itemHtml = `
-                        <div class="flex items-center space-x-4 border-b pb-4 last:border-b-0">
-                            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-lg object-cover">
-                            <div class="flex-1">
-                                <h4 class="font-semibold">${item.name}</h4>
-                                <p class="text-joastria-dark-gold font-bold">$${item.price.toFixed(2)}</p>
-                            </div>
-                            <button onclick="removeFromWishlist(${item.id})" class="text-red-500 hover:text-red-700 transition-colors">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                        </div>
-                    `;
-                    container.insertAdjacentHTML('beforeend', itemHtml);
-                });
-            }
-        }
-
-        // Function to dynamically render the cart content
-        function renderCart() {
-            const container = document.getElementById('cart-items');
-            const emptyMessage = document.getElementById('empty-cart-message');
-            container.innerHTML = ''; // Clear existing content
-
-            if (cart.length === 0) {
-                emptyMessage.classList.remove('hidden');
-            } else {
-                emptyMessage.classList.add('hidden');
-                cart.forEach(item => {
-                    const itemHtml = `
-                        <div class="flex items-center space-x-4 border-b pb-4 last:border-b-0">
-                            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-lg object-cover">
-                            <div class="flex-1">
-                                <h4 class="font-semibold">${item.name}</h4>
-                                <p class="text-gray-600 text-sm">Quantity: ${item.quantity}</p>
-                                <p class="text-joastria-dark-gold font-bold">$${(item.price * item.quantity).toFixed(2)}</p>
-                            </div>
-                            <button onclick="removeFromCart(${item.id})" class="text-red-500 hover:text-red-700 transition-colors">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                        </div>
-                    `;
-                    container.insertAdjacentHTML('beforeend', itemHtml);
-                });
-            }
-        }
-
-        // Function to add an item to the wishlist
-        function addToWishlist(product) {
-            if (!wishlist.some(item => item.id === product.id)) {
-                wishlist.push(product);
-                saveState();
-            }
-        }
-
-        // Function to add an item to the cart
-        function addToCart(product) {
-            const existingItem = cart.find(item => item.id === product.id);
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({ ...product, quantity: 1 });
-            }
-            saveState();
-        }
-
-        // Function to remove an item from the wishlist
-        function removeFromWishlist(productId) {
-            wishlist = wishlist.filter(item => item.id !== productId);
-            saveState();
-            renderWishlist(); // Re-render the modal
-        }
-
-        // Function to remove an item from the cart
-        function removeFromCart(productId) {
-            cart = cart.filter(item => item.id !== productId);
-            saveState();
-            renderCart(); // Re-render the modal
-        }
-
-        // Function to toggle the wishlist icon style
-        function toggleWishlist(buttonElement) {
-            const productCard = buttonElement.closest('.p-4');
-            const productId = productCard.dataset.productId;
-            const product = productData[productId];
-
-            if (wishlist.some(item => item.id === product.id)) {
-                removeFromWishlist(product.id);
-            } else {
-                addToWishlist(product);
-            }
-
-            const icon = buttonElement.querySelector('i');
-            if (icon) {
-                if (icon.classList.contains('text-red-500')) {
-                    icon.classList.remove('text-red-500');
-                    icon.classList.add('text-gray-400');
-                } else {
-                    icon.classList.remove('text-gray-400');
-                    icon.classList.add('text-red-500');
-                }
-            }
-        }
-        
-        // Function to toggle the cart icon style and add item to cart
-        function toggleCart(buttonElement) {
-            const productCard = buttonElement.closest('.p-4');
-            const productId = productCard.dataset.productId;
-            const product = productData[productId];
-
-            addToCart(product);
-            
-            const icon = buttonElement.querySelector('i');
-            if (icon) {
-                 if (icon.classList.contains('text-green-500')) {
-                    icon.classList.remove('text-green-500');
-                    icon.classList.add('text-gray-400');
-                } else {
-                    icon.classList.remove('text-gray-400');
-                    icon.classList.add('text-green-500');
-                }
-            }
-        }
-
-        // JavaScript for handling page navigation
-        function navigate(pageId) {
-            const pages = document.querySelectorAll('section, div[id$="-page"]');
-            pages.forEach(page => {
-                page.classList.add('hidden');
-            });
-            document.getElementById(pageId).classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Function to show the image modal
-        function showImageModal(src) {
-            const modal = document.getElementById('image-modal');
-            const modalImage = document.getElementById('modal-image');
-            modalImage.src = src;
-            modal.classList.remove('hidden');
-        }
-
-        // Function to hide the image modal
-        function hideImageModal() {
-            const modal = document.getElementById('image-modal');
-            modal.classList.add('hidden');
-        }
-
-        // Event listener to close the image modal when clicking outside the image
-        document.getElementById('image-modal').addEventListener('click', function(event) {
-            if (event.target === this) {
-                hideImageModal();
-            }
-        });
-
-        // Initially show the home page and load state
         window.onload = function() {
             initStore();
-            navigate('home-page');
         };
     </script>
 </body>

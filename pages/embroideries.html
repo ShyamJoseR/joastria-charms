@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embroideries Collection - JoAstria Charms</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <div class="main-container">
+        <header class="header">
+            <a href="../index.html" class="flex items-center space-x-2">
+                <img src="../assets/Logo/JoAstria Charms.png" alt="JoAstria Charms Logo" class="h-8 w-auto">
+            </a>
+            <nav class="flex space-x-4">
+                <a href="../index.html" class="text-joastria-gold hover:text-joastria-dark-gold">Home</a>
+                <button onclick="showModal('wishlist-modal')" class="text-joastria-gold hover:text-joastria-dark-gold">
+                    <i class="far fa-heart"></i>
+                </button>
+                <button onclick="showModal('cart-modal')" class="text-joastria-gold hover:text-joastria-dark-gold">
+                    <i class="fas fa-shopping-cart"></i>
+                </button>
+                <button onclick="showModal('contact-modal')" class="text-joastria-gold hover:text-joastria-dark-gold">
+                    <i class="far fa-envelope"></i>
+                </button>
+            </nav>
+        </header>
+
+        <div class="text-center pt-24 md:pt-32">
+            <h1 class="page-title">Embroideries Collection</h1>
+            <div class="product-grid">
+                <!-- Products will be dynamically populated by JavaScript -->
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2024 JoAstria Charms. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="image-modal" class="fixed inset-0 bg-black/80 flex justify-center items-center z-[100] hidden">
+        <img id="modal-image" class="max-w-[90%] max-h-[90%] rounded-lg shadow-2xl">
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-[100] hidden">
+        <div class="bg-white rounded-xl shadow-2xl p-6 w-full max-w-2xl">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-serif text-joastria-gold">Shopping Cart</h2>
+                <button onclick="hideModal('cart-modal')" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="cart-items" class="space-y-4 max-h-96 overflow-y-auto"></div>
+            <div id="empty-cart-message" class="text-center text-gray-500 italic mt-4 hidden">Your cart is empty.</div>
+        </div>
+    </div>
+
+    <!-- Wishlist Modal -->
+    <div id="wishlist-modal" class="modal fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-[100] hidden">
+        <div class="bg-white rounded-xl shadow-2xl p-6 w-full max-w-2xl">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-serif text-joastria-gold">My Wishlist</h2>
+                <button onclick="hideModal('wishlist-modal')" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="wishlist-items" class="space-y-4 max-h-96 overflow-y-auto"></div>
+            <div id="empty-wishlist-message" class="text-center text-gray-500 italic mt-4 hidden">Your wishlist is empty.</div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="modal fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-[100] hidden">
+        <div class="bg-white rounded-xl shadow-2xl p-6 w-full max-w-lg">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-serif text-joastria-gold">Contact Us</h2>
+                <button onclick="hideModal('contact-modal')" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="contact-form" class="space-y-4">
+                <div>
+                    <label for="contact-phone" class="block text-sm font-medium text-gray-700">Phone Number (Optional)</label>
+                    <input type="tel" id="contact-phone" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                </div>
+                <div>
+                    <label for="contact-message" class="block text-sm font-medium text-gray-700">Message (Optional)</label>
+                    <textarea id="contact-message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></textarea>
+                </div>
+            </form>
+            <div class="mt-6 flex justify-end">
+                <button onclick="sendContactEmail()" class="px-4 py-2 bg-joastria-gold text-white rounded-md hover:bg-joastria-dark-gold">
+                    Send Inquiry
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../scripts/app.js"></script>
+    <script>
+        // Populate embroideries
+        window.onload = function() {
+            initStore();
+            const productGrid = document.querySelector('.product-grid');
+            
+            // Filter embroidery products (IDs 15-16)
+            const embroideryProducts = Object.entries(productData)
+                .filter(([id]) => parseInt(id) >= 15 && parseInt(id) <= 16)
+                .forEach(([id, product]) => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'p-4 bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300';
+                    productCard.dataset.productId = id;
+                    
+                    productCard.innerHTML = `
+                        <div class="relative group">
+                            <img src="${product.image}" alt="${product.name}" class="w-full h-auto rounded-lg cursor-pointer" onclick="showImageModal(this.src)">
+                            <div class="absolute bottom-2 right-2 space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <button onclick="toggleWishlist(this)" class="p-2 bg-white rounded-full shadow-md hover:bg-pink-50">
+                                    <i class="${wishlist.some(item => item.id === product.id) ? 'fas' : 'far'} fa-heart text-pink-500"></i>
+                                </button>
+                                <button onclick="toggleCart(this)" class="p-2 bg-white rounded-full shadow-md hover:bg-green-50">
+                                    <i class="${cart.some(item => item.id === product.id) ? 'fas' : 'far'} fa-shopping-cart text-green-500"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h3 class="mt-4 text-lg font-medium">${product.name}</h3>
+                        <p class="text-joastria-gold">$${product.price.toFixed(2)}</p>
+                    `;
+                    
+                    productGrid.appendChild(productCard);
+                });
+
+            // Set up image modal close
+            document.getElementById('image-modal').addEventListener('click', function(event) {
+                if (event.target === this) {
+                    hideImageModal();
+                }
+            });
+        };
+    </script>
+</body>
+</html>

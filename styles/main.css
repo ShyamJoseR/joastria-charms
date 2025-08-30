@@ -1,0 +1,109 @@
+/* Define custom colors */
+:root {
+    --joastria-gold: #B88E5E;
+    --joastria-pink: #F8E7F0;
+    --joastria-dark-gold: #8B6B48;
+    --joastria-very-dark-gold: #6A543C;
+}
+
+/* Custom animation for the smooth pop-out effect */
+.collections-menu {
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transform: translateY(10px);
+}
+
+/* Custom scrollbar for better aesthetics */
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--joastria-gold);
+    border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: var(--joastria-dark-gold);
+}
+
+/* Modal styling */
+.modal {
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Common styles */
+body {
+    background-color: rgb(250 250 249);
+    color: var(--joastria-very-dark-gold);
+    font-family: 'Inter', sans-serif;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(4px);
+    border-radius: 9999px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    z-index: 50;
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 80rem;
+}
+
+.main-container {
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-title {
+    font-size: 2.25rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--joastria-gold);
+    margin-bottom: 2rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+@media (min-width: 640px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
+    color: rgb(107 114 128);
+    border-top: 1px solid rgb(229 231 235);
+}
