@@ -20,6 +20,24 @@
             --joastria-very-dark-gold: #6A543C; /* A new, darker gold for strong contrast */
         }
 
+        /* Custom Tailwind configuration */
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'joastria-gold': 'var(--joastria-gold)',
+                        'joastria-pink': 'var(--joastria-pink)',
+                        'joastria-dark-gold': 'var(--joastria-dark-gold)',
+                        'joastria-very-dark-gold': 'var(--joastria-very-dark-gold)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif']
+                    }
+                }
+            }
+        }
+
         /* Custom CSS for the smooth pop-out effect */
         .collections-menu {
             transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -45,7 +63,6 @@
         .modal {
             transition: opacity 0.3s ease-in-out;
         }
-
     </style>
 </head>
 <body class="bg-stone-50 text-joastria-very-dark-gold font-sans">
@@ -175,7 +192,7 @@
                 <h2 class="text-4xl font-serif text-joastria-gold mb-8">Scrunchies Collection</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4">
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
-                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+1" alt="Pink Silk Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+1')">
+                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+1" alt="Pink Silk Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showImageModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+1')">
                         <div class="p-4" data-product-id="1" data-product-name="Pink Silk Scrunchie" data-product-price="15.00">
                             <h3 class="text-lg font-semibold text-left mb-1">Pink Silk Scrunchie</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$15.00</p>
@@ -192,7 +209,7 @@
                         </div>
                     </div>
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
-                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+2" alt="Classic Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+2')">
+                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+2" alt="Classic Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showImageModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+2')">
                         <div class="p-4" data-product-id="2" data-product-name="Classic Scrunchie" data-product-price="12.50">
                             <h3 class="text-lg font-semibold text-left mb-1">Classic Scrunchie</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$12.50</p>
@@ -209,7 +226,7 @@
                         </div>
                     </div>
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
-                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+3" alt="Mint Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+3')">
+                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+3" alt="Mint Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showImageModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+3')">
                         <div class="p-4" data-product-id="3" data-product-name="Mint Scrunchie" data-product-price="15.00">
                             <h3 class="text-lg font-semibold text-left mb-1">Mint Scrunchie</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$15.00</p>
@@ -226,7 +243,7 @@
                         </div>
                     </div>
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
-                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+4" alt="Ocean Blue Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+4')">
+                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+4" alt="Ocean Blue Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showImageModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+4')">
                         <div class="p-4" data-product-id="4" data-product-name="Ocean Blue Scrunchie" data-product-price="18.00">
                             <h3 class="text-lg font-semibold text-left mb-1">Ocean Blue Scrunchie</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$18.00</p>
@@ -243,7 +260,7 @@
                         </div>
                     </div>
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
-                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+5" alt="Crimson Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+5')">
+                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+5" alt="Crimson Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showImageModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+5')">
                         <div class="p-4" data-product-id="5" data-product-name="Crimson Scrunchie" data-product-price="15.00">
                             <h3 class="text-lg font-semibold text-left mb-1">Crimson Scrunchie</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$15.00</p>
@@ -260,7 +277,7 @@
                         </div>
                     </div>
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
-                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+6" alt="Golden Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+6')">
+                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+6" alt="Golden Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showImageModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+6')">
                         <div class="p-4" data-product-id="6" data-product-name="Golden Scrunchie" data-product-price="19.50">
                             <h3 class="text-lg font-semibold text-left mb-1">Golden Scrunchie</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$19.50</p>
@@ -277,7 +294,7 @@
                         </div>
                     </div>
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
-                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+7" alt="Lavender Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+7')">
+                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+7" alt="Lavender Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showImageModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+7')">
                         <div class="p-4" data-product-id="7" data-product-name="Lavender Scrunchie" data-product-price="16.00">
                             <h3 class="text-lg font-semibold text-left mb-1">Lavender Scrunchie</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$16.00</p>
@@ -294,7 +311,7 @@
                         </div>
                     </div>
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
-                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+8" alt="Emerald Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+8')">
+                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+8" alt="Emerald Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showImageModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+8')">
                         <div class="p-4" data-product-id="8" data-product-name="Emerald Scrunchie" data-product-price="17.50">
                             <h3 class="text-lg font-semibold text-left mb-1">Emerald Scrunchie</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$17.50</p>
@@ -333,7 +350,7 @@
                 <h2 class="text-4xl font-serif text-joastria-gold mb-8">Bands Collection</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4">
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
-                        <img src="https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+A" alt="Linen Headband" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/E8D2C6/B88E5E?text=Product+A')">
+                        <img src="https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+A" alt="Linen Headband" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showImageModal('https://placehold.co/800x800/E8D2C6/B88E5E?text=Product+A')">
                         <div class="p-4" data-product-id="9" data-product-name="Linen Headband" data-product-price="22.00">
                             <h3 class="text-lg font-semibold text-left mb-1">Linen Headband</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$22.00</p>
@@ -350,7 +367,7 @@
                         </div>
                     </div>
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
-                        <img src="https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+B" alt="Patterned Band" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/E8D2C6/B88E5E?text=Product+B')">
+                        <img src="https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+B" alt="Patterned Band" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showImageModal('https://placehold.co/800x800/E8D2C6/B88E5E?text=Product+B')">
                         <div class="p-4" data-product-id="10" data-product-name="Patterned Band" data-product-price="25.00">
                             <h3 class="text-lg font-semibold text-left mb-1">Patterned Band</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$25.00</p>
@@ -367,7 +384,7 @@
                         </div>
                     </div>
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
-                        <img src="https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+C" alt="Wide Silk Band" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/E8D2C6/B88E5E?text=Product+C')">
+                        <img src="https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+C" alt="Wide Silk Band" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showImageModal('https://placehold.co/800x800/E8D2C6/B88E5E?text=Product+C')">
                         <div class="p-4" data-product-id="11" data-product-name="Wide Silk Band" data-product-price="28.00">
                             <h3 class="text-lg font-semibold text-left mb-1">Wide Silk Band</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$28.00</p>
@@ -384,7 +401,7 @@
                         </div>
                     </div>
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
-                        <img src="https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+D" alt="Turban Headband" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/E8D2C6/B88E5E?text=Product+D')">
+                        <img src="https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+D" alt="Turban Headband" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showImageModal('https://placehold.co/800x800/E8D2C6/B88E5E?text=Product+D')">
                         <div class="p-4" data-product-id="12" data-product-name="Turban Headband" data-product-price="30.00">
                             <h3 class="text-lg font-semibold text-left mb-1">Turban Headband</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$30.00</p>
@@ -423,7 +440,7 @@
                 <h2 class="text-4xl font-serif text-joastria-gold mb-8">Bows Collection</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4">
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
-                        <img src="https://placehold.co/400x400/CFB8D8/B88E5E?text=Product+I" alt="Ribbon Hair Bow" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/CFB8D8/B88E5E?text=Product+I')">
+                        <img src="https://placehold.co/400x400/CFB8D8/B88E5E?text=Product+I" alt="Ribbon Hair Bow" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showImageModal('https://placehold.co/800x800/CFB8D8/B88E5E?text=Product+I')">
                         <div class="p-4" data-product-id="13" data-product-name="Ribbon Hair Bow" data-product-price="18.00">
                             <h3 class="text-lg font-semibold text-left mb-1">Ribbon Hair Bow</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$18.00</p>
@@ -440,7 +457,7 @@
                         </div>
                     </div>
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
-                        <img src="https://placehold.co/400x400/CFB8D8/B88E5E?text=Product+J" alt="Satin Bow Set" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/CFB8D8/B88E5E?text=Product+J')">
+                        <img src="https://placehold.co/400x400/CFB8D8/B88E5E?text=Product+J" alt="Satin Bow Set" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showImageModal('https://placehold.co/800x800/CFB8D8/B88E5E?text=Product+J')">
                         <div class="p-4" data-product-id="14" data-product-name="Satin Bow Set" data-product-price="25.00">
                             <h3 class="text-lg font-semibold text-left mb-1">Satin Bow Set</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$25.00</p>
@@ -479,7 +496,7 @@
                 <h2 class="text-4xl font-serif text-joastria-gold mb-8">Embroideries Collection</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4">
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
-                        <img src="https://placehold.co/400x400/D4B891/B88E5E?text=Product+X" alt="Embroidered Pouch" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/D4B891/B88E5E?text=Product+X')">
+                        <img src="https://placehold.co/400x400/D4B891/B88E5E?text=Product+X" alt="Embroidered Pouch" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showImageModal('https://placehold.co/800x800/D4B891/B88E5E?text=Product+X')">
                         <div class="p-4" data-product-id="15" data-product-name="Embroidered Pouch" data-product-price="35.00">
                             <h3 class="text-lg font-semibold text-left mb-1">Embroidered Pouch</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$35.00</p>
@@ -496,7 +513,7 @@
                         </div>
                     </div>
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
-                        <img src="https://placehold.co/400x400/D4B891/B88E5E?text=Product+Y" alt="Floral Embroidery Kit" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/D4B891/B88E5E?text=Product+Y')">
+                        <img src="https://placehold.co/400x400/D4B891/B88E5E?text=Product+Y" alt="Floral Embroidery Kit" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showImageModal('https://placehold.co/800x800/D4B891/B88E5E?text=Product+Y')">
                         <div class="p-4" data-product-id="16" data-product-name="Floral Embroidery Kit" data-product-price="42.00">
                             <h3 class="text-lg font-semibold text-left mb-1">Floral Embroidery Kit</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$42.00</p>
@@ -610,7 +627,6 @@
             }
         }
 
-        // State variables
         let wishlist = [];
         let cart = [];
         const productData = {
