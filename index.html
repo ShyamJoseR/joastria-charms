@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Define custom Tailwind colors and font family */
@@ -168,30 +170,126 @@
             </header>
             <div class="text-center pt-24 md:pt-32 flex-grow">
                 <h2 class="text-4xl font-serif text-joastria-gold mb-8">Scrunchies Collection</h2>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <div class="p-2 bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group cursor-pointer">
-                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+1" alt="Product 1" class="w-full h-auto rounded-lg group-hover:scale-110 transition-transform duration-300" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+1')">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4">
+                    <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
+                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+1" alt="Pink Silk Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+1')">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-left mb-1">Pink Silk Scrunchie</h3>
+                            <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$15.00</p>
+                            <div class="flex justify-between items-center">
+                                <button onclick="toggleWishlist(this)" class="text-gray-400 hover:text-red-500 transition-colors duration-200" aria-label="Add to wishlist">
+                                    <i class="fa-solid fa-heart fa-lg"></i>
+                                </button>
+                                <button onclick="toggleCart(this)" class="bg-joastria-dark-gold text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-joastria-gold transition-colors duration-200" aria-label="Add to cart">
+                                    <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-2 bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group cursor-pointer">
-                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+2" alt="Product 2" class="w-full h-auto rounded-lg group-hover:scale-110 transition-transform duration-300" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+2')">
+                    <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
+                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+2" alt="Classic Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+2')">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-left mb-1">Classic Scrunchie</h3>
+                            <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$12.50</p>
+                            <div class="flex justify-between items-center">
+                                <button onclick="toggleWishlist(this)" class="text-gray-400 hover:text-red-500 transition-colors duration-200" aria-label="Add to wishlist">
+                                    <i class="fa-solid fa-heart fa-lg"></i>
+                                </button>
+                                <button onclick="toggleCart(this)" class="bg-joastria-dark-gold text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-joastria-gold transition-colors duration-200" aria-label="Add to cart">
+                                    <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-2 bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group cursor-pointer">
-                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+3" alt="Product 3" class="w-full h-auto rounded-lg group-hover:scale-110 transition-transform duration-300" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+3')">
+                    <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
+                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+3" alt="Mint Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+3')">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-left mb-1">Mint Scrunchie</h3>
+                            <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$15.00</p>
+                            <div class="flex justify-between items-center">
+                                <button onclick="toggleWishlist(this)" class="text-gray-400 hover:text-red-500 transition-colors duration-200" aria-label="Add to wishlist">
+                                    <i class="fa-solid fa-heart fa-lg"></i>
+                                </button>
+                                <button onclick="toggleCart(this)" class="bg-joastria-dark-gold text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-joastria-gold transition-colors duration-200" aria-label="Add to cart">
+                                    <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-2 bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group cursor-pointer">
-                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+4" alt="Product 4" class="w-full h-auto rounded-lg group-hover:scale-110 transition-transform duration-300" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+4')">
+                    <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
+                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+4" alt="Ocean Blue Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+4')">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-left mb-1">Ocean Blue Scrunchie</h3>
+                            <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$18.00</p>
+                            <div class="flex justify-between items-center">
+                                <button onclick="toggleWishlist(this)" class="text-gray-400 hover:text-red-500 transition-colors duration-200" aria-label="Add to wishlist">
+                                    <i class="fa-solid fa-heart fa-lg"></i>
+                                </button>
+                                <button onclick="toggleCart(this)" class="bg-joastria-dark-gold text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-joastria-gold transition-colors duration-200" aria-label="Add to cart">
+                                    <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-2 bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group cursor-pointer">
-                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+5" alt="Product 5" class="w-full h-auto rounded-lg group-hover:scale-110 transition-transform duration-300" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+5')">
+                    <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
+                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+5" alt="Crimson Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+5')">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-left mb-1">Crimson Scrunchie</h3>
+                            <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$15.00</p>
+                            <div class="flex justify-between items-center">
+                                <button onclick="toggleWishlist(this)" class="text-gray-400 hover:text-red-500 transition-colors duration-200" aria-label="Add to wishlist">
+                                    <i class="fa-solid fa-heart fa-lg"></i>
+                                </button>
+                                <button onclick="toggleCart(this)" class="bg-joastria-dark-gold text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-joastria-gold transition-colors duration-200" aria-label="Add to cart">
+                                    <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-2 bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group cursor-pointer">
-                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+6" alt="Product 6" class="w-full h-auto rounded-lg group-hover:scale-110 transition-transform duration-300" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+6')">
+                    <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
+                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+6" alt="Golden Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+6')">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-left mb-1">Golden Scrunchie</h3>
+                            <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$19.50</p>
+                            <div class="flex justify-between items-center">
+                                <button onclick="toggleWishlist(this)" class="text-gray-400 hover:text-red-500 transition-colors duration-200" aria-label="Add to wishlist">
+                                    <i class="fa-solid fa-heart fa-lg"></i>
+                                </button>
+                                <button onclick="toggleCart(this)" class="bg-joastria-dark-gold text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-joastria-gold transition-colors duration-200" aria-label="Add to cart">
+                                    <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-2 bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group cursor-pointer">
-                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+7" alt="Product 7" class="w-full h-auto rounded-lg group-hover:scale-110 transition-transform duration-300" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+7')">
+                    <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
+                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+7" alt="Lavender Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+7')">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-left mb-1">Lavender Scrunchie</h3>
+                            <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$16.00</p>
+                            <div class="flex justify-between items-center">
+                                <button onclick="toggleWishlist(this)" class="text-gray-400 hover:text-red-500 transition-colors duration-200" aria-label="Add to wishlist">
+                                    <i class="fa-solid fa-heart fa-lg"></i>
+                                </button>
+                                <button onclick="toggleCart(this)" class="bg-joastria-dark-gold text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-joastria-gold transition-colors duration-200" aria-label="Add to cart">
+                                    <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-2 bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group cursor-pointer">
-                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+8" alt="Product 8" class="w-full h-auto rounded-lg group-hover:scale-110 transition-transform duration-300" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+8')">
+                    <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
+                        <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+8" alt="Emerald Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+8')">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-left mb-1">Emerald Scrunchie</h3>
+                            <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$17.50</p>
+                            <div class="flex justify-between items-center">
+                                <button onclick="toggleWishlist(this)" class="text-gray-400 hover:text-red-500 transition-colors duration-200" aria-label="Add to wishlist">
+                                    <i class="fa-solid fa-heart fa-lg"></i>
+                                </button>
+                                <button onclick="toggleCart(this)" class="bg-joastria-dark-gold text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-joastria-gold transition-colors duration-200" aria-label="Add to cart">
+                                    <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -214,18 +312,66 @@
             </header>
             <div class="text-center pt-24 md:pt-32 flex-grow">
                 <h2 class="text-4xl font-serif text-joastria-gold mb-8">Bands Collection</h2>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <div class="p-2 bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group cursor-pointer">
-                        <img src="https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+A" alt="Product A" class="w-full h-auto rounded-lg group-hover:scale-110 transition-transform duration-300" onclick="showModal('https://placehold.co/800x800/E8D2C6/B88E5E?text=Product+A')">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4">
+                    <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
+                        <img src="https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+A" alt="Linen Headband" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/E8D2C6/B88E5E?text=Product+A')">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-left mb-1">Linen Headband</h3>
+                            <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$22.00</p>
+                            <div class="flex justify-between items-center">
+                                <button onclick="toggleWishlist(this)" class="text-gray-400 hover:text-red-500 transition-colors duration-200" aria-label="Add to wishlist">
+                                    <i class="fa-solid fa-heart fa-lg"></i>
+                                </button>
+                                <button onclick="toggleCart(this)" class="bg-joastria-dark-gold text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-joastria-gold transition-colors duration-200" aria-label="Add to cart">
+                                    <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-2 bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group cursor-pointer">
-                        <img src="https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+B" alt="Product B" class="w-full h-auto rounded-lg group-hover:scale-110 transition-transform duration-300" onclick="showModal('https://placehold.co/800x800/E8D2C6/B88E5E?text=Product+B')">
+                    <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
+                        <img src="https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+B" alt="Patterned Band" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/E8D2C6/B88E5E?text=Product+B')">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-left mb-1">Patterned Band</h3>
+                            <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$25.00</p>
+                            <div class="flex justify-between items-center">
+                                <button onclick="toggleWishlist(this)" class="text-gray-400 hover:text-red-500 transition-colors duration-200" aria-label="Add to wishlist">
+                                    <i class="fa-solid fa-heart fa-lg"></i>
+                                </button>
+                                <button onclick="toggleCart(this)" class="bg-joastria-dark-gold text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-joastria-gold transition-colors duration-200" aria-label="Add to cart">
+                                    <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-2 bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group cursor-pointer">
-                        <img src="https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+C" alt="Product C" class="w-full h-auto rounded-lg group-hover:scale-110 transition-transform duration-300" onclick="showModal('https://placehold.co/800x800/E8D2C6/B88E5E?text=Product+C')">
+                    <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
+                        <img src="https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+C" alt="Wide Silk Band" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/E8D2C6/B88E5E?text=Product+C')">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-left mb-1">Wide Silk Band</h3>
+                            <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$28.00</p>
+                            <div class="flex justify-between items-center">
+                                <button onclick="toggleWishlist(this)" class="text-gray-400 hover:text-red-500 transition-colors duration-200" aria-label="Add to wishlist">
+                                    <i class="fa-solid fa-heart fa-lg"></i>
+                                </button>
+                                <button onclick="toggleCart(this)" class="bg-joastria-dark-gold text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-joastria-gold transition-colors duration-200" aria-label="Add to cart">
+                                    <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-2 bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group cursor-pointer">
-                        <img src="https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+D" alt="Product D" class="w-full h-auto rounded-lg group-hover:scale-110 transition-transform duration-300" onclick="showModal('https://placehold.co/800x800/E8D2C6/B88E5E?text=Product+D')">
+                    <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
+                        <img src="https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+D" alt="Turban Headband" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/E8D2C6/B88E5E?text=Product+D')">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-left mb-1">Turban Headband</h3>
+                            <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$30.00</p>
+                            <div class="flex justify-between items-center">
+                                <button onclick="toggleWishlist(this)" class="text-gray-400 hover:text-red-500 transition-colors duration-200" aria-label="Add to wishlist">
+                                    <i class="fa-solid fa-heart fa-lg"></i>
+                                </button>
+                                <button onclick="toggleCart(this)" class="bg-joastria-dark-gold text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-joastria-gold transition-colors duration-200" aria-label="Add to cart">
+                                    <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -248,12 +394,36 @@
             </header>
             <div class="text-center pt-24 md:pt-32 flex-grow">
                 <h2 class="text-4xl font-serif text-joastria-gold mb-8">Bows Collection</h2>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <div class="p-2 bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group cursor-pointer">
-                        <img src="https://placehold.co/400x400/CFB8D8/B88E5E?text=Product+I" alt="Product I" class="w-full h-auto rounded-lg group-hover:scale-110 transition-transform duration-300" onclick="showModal('https://placehold.co/800x800/CFB8D8/B88E5E?text=Product+I')">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4">
+                    <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
+                        <img src="https://placehold.co/400x400/CFB8D8/B88E5E?text=Product+I" alt="Ribbon Hair Bow" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/CFB8D8/B88E5E?text=Product+I')">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-left mb-1">Ribbon Hair Bow</h3>
+                            <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$18.00</p>
+                            <div class="flex justify-between items-center">
+                                <button onclick="toggleWishlist(this)" class="text-gray-400 hover:text-red-500 transition-colors duration-200" aria-label="Add to wishlist">
+                                    <i class="fa-solid fa-heart fa-lg"></i>
+                                </button>
+                                <button onclick="toggleCart(this)" class="bg-joastria-dark-gold text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-joastria-gold transition-colors duration-200" aria-label="Add to cart">
+                                    <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-2 bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group cursor-pointer">
-                        <img src="https://placehold.co/400x400/CFB8D8/B88E5E?text=Product+J" alt="Product J" class="w-full h-auto rounded-lg group-hover:scale-110 transition-transform duration-300" onclick="showModal('https://placehold.co/800x800/CFB8D8/B88E5E?text=Product+J')">
+                    <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
+                        <img src="https://placehold.co/400x400/CFB8D8/B88E5E?text=Product+J" alt="Satin Bow Set" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/CFB8D8/B88E5E?text=Product+J')">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-left mb-1">Satin Bow Set</h3>
+                            <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$25.00</p>
+                            <div class="flex justify-between items-center">
+                                <button onclick="toggleWishlist(this)" class="text-gray-400 hover:text-red-500 transition-colors duration-200" aria-label="Add to wishlist">
+                                    <i class="fa-solid fa-heart fa-lg"></i>
+                                </button>
+                                <button onclick="toggleCart(this)" class="bg-joastria-dark-gold text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-joastria-gold transition-colors duration-200" aria-label="Add to cart">
+                                    <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -276,12 +446,36 @@
             </header>
             <div class="text-center pt-24 md:pt-32 flex-grow">
                 <h2 class="text-4xl font-serif text-joastria-gold mb-8">Embroideries Collection</h2>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <div class="p-2 bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group cursor-pointer">
-                        <img src="https://placehold.co/400x400/D4B891/B88E5E?text=Product+X" alt="Product X" class="w-full h-auto rounded-lg group-hover:scale-110 transition-transform duration-300" onclick="showModal('https://placehold.co/800x800/D4B891/B88E5E?text=Product+X')">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4">
+                    <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
+                        <img src="https://placehold.co/400x400/D4B891/B88E5E?text=Product+X" alt="Embroidered Pouch" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/D4B891/B88E5E?text=Product+X')">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-left mb-1">Embroidered Pouch</h3>
+                            <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$35.00</p>
+                            <div class="flex justify-between items-center">
+                                <button onclick="toggleWishlist(this)" class="text-gray-400 hover:text-red-500 transition-colors duration-200" aria-label="Add to wishlist">
+                                    <i class="fa-solid fa-heart fa-lg"></i>
+                                </button>
+                                <button onclick="toggleCart(this)" class="bg-joastria-dark-gold text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-joastria-gold transition-colors duration-200" aria-label="Add to cart">
+                                    <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-2 bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group cursor-pointer">
-                        <img src="https://placehold.co/400x400/D4B891/B88E5E?text=Product+Y" alt="Product Y" class="w-full h-auto rounded-lg group-hover:scale-110 transition-transform duration-300" onclick="showModal('https://placehold.co/800x800/D4B891/B88E5E?text=Product+Y')">
+                    <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
+                        <img src="https://placehold.co/400x400/D4B891/B88E5E?text=Product+Y" alt="Floral Embroidery Kit" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/D4B891/B88E5E?text=Product+Y')">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-left mb-1">Floral Embroidery Kit</h3>
+                            <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$42.00</p>
+                            <div class="flex justify-between items-center">
+                                <button onclick="toggleWishlist(this)" class="text-gray-400 hover:text-red-500 transition-colors duration-200" aria-label="Add to wishlist">
+                                    <i class="fa-solid fa-heart fa-lg"></i>
+                                </button>
+                                <button onclick="toggleCart(this)" class="bg-joastria-dark-gold text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-joastria-gold transition-colors duration-200" aria-label="Add to cart">
+                                    <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -328,6 +522,40 @@
                 hideModal();
             }
         });
+
+        // Function to toggle the wishlist heart icon
+        function toggleWishlist(buttonElement) {
+            const icon = buttonElement.querySelector('i');
+            if (icon.classList.contains('fa-regular')) {
+                // If it's a regular (empty) heart, fill it and change color
+                icon.classList.remove('fa-regular', 'text-gray-400');
+                icon.classList.add('fa-solid', 'text-red-500');
+            } else {
+                // If it's a solid heart, make it regular (empty) and change color
+                icon.classList.remove('fa-solid', 'text-red-500');
+                icon.classList.add('fa-regular', 'text-gray-400');
+            }
+        }
+
+        // Function to toggle the cart icon and button text
+        function toggleCart(buttonElement) {
+            const icon = buttonElement.querySelector('i');
+            if (icon.classList.contains('fa-cart-shopping')) {
+                // Change to checkmark and update text
+                icon.classList.remove('fa-cart-shopping');
+                icon.classList.add('fa-check');
+                buttonElement.textContent = 'Added';
+                buttonElement.prepend(icon); // Prepend the updated icon
+                buttonElement.classList.replace('bg-joastria-dark-gold', 'bg-joastria-gold');
+            } else {
+                // Change back to shopping cart and original text
+                icon.classList.remove('fa-check');
+                icon.classList.add('fa-cart-shopping');
+                buttonElement.textContent = 'Add to Cart';
+                buttonElement.prepend(icon);
+                buttonElement.classList.replace('bg-joastria-gold', 'bg-joastria-dark-gold');
+            }
+        }
 
         // Initially show the home page
         window.onload = function() {
