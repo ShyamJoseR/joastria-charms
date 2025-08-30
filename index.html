@@ -20,6 +20,24 @@
             --joastria-very-dark-gold: #6A543C; /* A new, darker gold for strong contrast */
         }
 
+        /* Custom Tailwind configuration */
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'joastria-gold': 'var(--joastria-gold)',
+                        'joastria-pink': 'var(--joastria-pink)',
+                        'joastria-dark-gold': 'var(--joastria-dark-gold)',
+                        'joastria-very-dark-gold': 'var(--joastria-very-dark-gold)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif']
+                    }
+                }
+            }
+        }
+
         /* Custom CSS for the smooth pop-out effect */
         .collections-menu {
             transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -103,38 +121,35 @@
             <!-- Features/Collections Grid -->
             <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-4 md:p-8">
                 <!-- Card for Scrunchies -->
-                <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group">
+                <div onclick="navigate('scrunchies-page')" class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group cursor-pointer">
                     <img src="https://placehold.co/600x400/DCC5AE/fff?text=Scrunchies" alt="Scrunchies" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="p-4 text-center">
                         <h3 class="text-2xl font-serif text-joastria-dark-gold mb-2">Scrunchies</h3>
                         <p class="text-joastria-very-dark-gold text-sm">Elegant and comfortable hair ties.</p>
-                        <button onclick="navigate('scrunchies-page')" class="mt-4 px-6 py-2 text-sm font-medium bg-joastria-pink text-joastria-very-dark-gold rounded-full hover:bg-joastria-gold hover:text-white transition-colors">View Collection</button>
                     </div>
                 </div>
                 <!-- Card for Bands -->
-                <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group">
+                <div onclick="navigate('bands-page')" class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group cursor-pointer">
                     <img src="https://placehold.co/600x400/DCC5AE/fff?text=Bands" alt="Bands" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="p-4 text-center">
                         <h3 class="text-2xl font-serif text-joastria-dark-gold mb-2">Bands</h3>
                         <p class="text-joastria-very-dark-gold text-sm">Chic and stylish headbands.</p>
-                        <button onclick="navigate('bands-page')" class="mt-4 px-6 py-2 text-sm font-medium bg-joastria-pink text-joastria-very-dark-gold rounded-full hover:bg-joastria-gold hover:text-white transition-colors">View Collection</button></div>
+                    </div>
                 </div>
                 <!-- Card for Bows -->
-                <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group">
+                <div onclick="navigate('bows-page')" class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group cursor-pointer">
                     <img src="https://placehold.co/600x400/DCC5AE/fff?text=Bows" alt="Bows" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="p-4 text-center">
                         <h3 class="text-2xl font-serif text-joastria-dark-gold mb-2">Bows</h3>
                         <p class="text-joastria-very-dark-gold text-sm">Perfectly tied ribbon bows.</p>
-                        <button onclick="navigate('bows-page')" class="mt-4 px-6 py-2 text-sm font-medium bg-joastria-pink text-joastria-very-dark-gold rounded-full hover:bg-joastria-gold hover:text-white transition-colors">View Collection</button>
                     </div>
                 </div>
                 <!-- Card for Embroideries -->
-                <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group">
+                <div onclick="navigate('embroideries-page')" class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group cursor-pointer">
                     <img src="https://placehold.co/600x400/DCC5AE/fff?text=Embroideries" alt="Embroideries" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="p-4 text-center">
                         <h3 class="text-2xl font-serif text-joastria-dark-gold mb-2">Embroideries</h3>
                         <p class="text-joastria-very-dark-gold text-sm">Delicate and detailed accessories.</p>
-                        <button onclick="navigate('embroideries-page')" class="mt-4 px-6 py-2 text-sm font-medium bg-joastria-pink text-joastria-very-dark-gold rounded-full hover:bg-joastria-gold hover:text-white transition-colors">View Collection</button>
                     </div>
                 </div>
             </div>
@@ -151,7 +166,7 @@
         <div id="scrunchies-page" class="hidden min-h-screen p-8 flex flex-col">
             <header class="w-full flex justify-between items-center py-4 px-6 md:px-12 bg-white/70 backdrop-blur-sm rounded-full shadow-md z-50 fixed top-4 left-1/2 transform -translate-x-1/2 max-w-7xl">
                 <button onclick="navigate('home-page')" class="flex items-center space-x-2 focus:outline-none">
-                    <img src="https://placehold.co/80x80/fcfaf8/B88E5E?text=JoAstria+Logo" alt="JoAstria Charms Logo" class="h-10 w-10 md:h-12 md:w-12 rounded-full">
+                    <img src="https://placehold.co/80x80/fcfafaf/B88E5E?text=JoAstria+Logo" alt="JoAstria Charms Logo" class="h-10 w-10 md:h-12 md:w-12 rounded-full">
                     <span class="text-2xl md:text-3xl font-serif font-bold text-joastria-dark-gold">JoAstria Charms</span>
                 </button>
                 <nav>
@@ -581,6 +596,7 @@
     </div>
 
     <script>
+        
         /* Custom Tailwind configuration */
         tailwind.config = {
             theme: {
@@ -598,6 +614,7 @@
                 }
             }
         }
+        
         let wishlist = [];
         let cart = [];
         const productData = {
