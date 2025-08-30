@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JoAstria Charms</title>
-        <!-- Favicon -->
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="./assets/Logo/favicon/favicon.ico">
     <!-- For modern browsers -->
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/Logo/favicon/favicon-32x32.png">
@@ -17,7 +17,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -74,18 +73,6 @@
                 
                 <!-- Main Navigation Links -->
                 <nav class="flex flex-wrap justify-center md:justify-end items-center gap-4 md:gap-6">
-                    <!-- <a href="#" onclick="navigate('home-page')" class="text-base md:text-xl font-medium text-joastria-very-dark-gold hover:text-joastria-gold transition-colors duration-300">Home</a> -->
-                    <!-- Collections with pop-out menu -->
-                    <!-- Corrected structure: `relative` parent on the `span` to control the hover area precisely -->
-                    <!-- <span id="collections-dropdown-trigger" class="relative text-base md:text-xl font-medium text-joastria-very-dark-gold cursor-pointer hover:text-joastria-gold transition-colors duration-300">
-                        Collections
-                        <ul id="collections-dropdown-menu" class="collections-menu absolute left-1/2 transform -translate-x-1/2 mt-2 w-48 bg-white rounded-lg shadow-xl py-2 opacity-0 scale-95 transition-all duration-300 ease-out z-40 hidden">
-                            <li><button onclick="navigate('scrunchies-page')" class="block w-full text-left px-4 py-2 text-joastria-very-dark-gold hover:bg-gray-100 rounded-md transition-colors duration-200">Scrunchies</button></li>
-                            <li><button onclick="navigate('bands-page')" class="block w-full text-left px-4 py-2 text-joastria-very-dark-gold hover:bg-gray-100 rounded-md transition-colors duration-200">Bands</button></li>
-                            <li><button onclick="navigate('bows-page')" class="block w-full text-left px-4 py-2 text-joastria-very-dark-gold hover:bg-gray-100 rounded-md transition-colors duration-200">Bows</button></li>
-                            <li><button onclick="navigate('embroideries-page')" class="block w-full text-left px-4 py-2 text-joastria-very-dark-gold hover:bg-gray-100 rounded-md transition-colors duration-200">Embroideries</button></li>
-                        </ul>
-                    </span> -->
                     <button onclick="showModal('wishlist-modal')" class="text-base md:text-xl font-medium text-joastria-very-dark-gold hover:text-red-500 transition-colors duration-300" aria-label="Wishlist">
                         <i class="fa-solid fa-heart"></i>
                     </button>
@@ -106,9 +93,6 @@
                 <p class="max-w-xl text-lg md:text-xl text-joastria-very-dark-gold mb-8 animate-fade-in-up delay-100">
                     Discover our exclusive collections of handcrafted scrunchies, headbands, bows, and embroidered accessories, each piece designed to add a touch of charm to your style.
                 </p>
-                <a href="#" onclick="navigate('scrunchies-page')" class="px-8 py-3 rounded-full text-lg font-medium bg-joastria-very-dark-gold text-white shadow-lg transform hover:scale-105 transition-transform duration-300">
-                    Explore Now
-                </a>
             </div>
             
             <!-- Features/Collections Grid -->
@@ -589,6 +573,7 @@
     </div>
 
     <script>
+        
         /* Custom Tailwind configuration */
         tailwind.config = {
             theme: {
@@ -602,8 +587,6 @@
                 }
             }
         }
-
-        /* JavaScript code */
         let wishlist = [];
         let cart = [];
         let hideTimer;
@@ -674,10 +657,14 @@
         }
 
         // Add event listeners for the collections dropdown
-        collectionsTrigger.addEventListener('mouseenter', showCollectionsMenu);
-        collectionsTrigger.addEventListener('mouseleave', hideCollectionsMenu);
-        collectionsMenu.addEventListener('mouseenter', clearHideTimer);
-        collectionsMenu.addEventListener('mouseleave', hideCollectionsMenu);
+        if (collectionsTrigger) {
+            collectionsTrigger.addEventListener('mouseenter', showCollectionsMenu);
+            collectionsTrigger.addEventListener('mouseleave', hideCollectionsMenu);
+        }
+        if (collectionsMenu) {
+            collectionsMenu.addEventListener('mouseenter', clearHideTimer);
+            collectionsMenu.addEventListener('mouseleave', hideCollectionsMenu);
+        }
 
 
         // Function to handle sending the contact email with phone number
