@@ -58,6 +58,12 @@
         body::-webkit-scrollbar-thumb:hover {
             background: var(--joastria-dark-gold);
         }
+
+        /* Modal styling */
+        .modal {
+            transition: opacity 0.3s ease-in-out;
+        }
+
     </style>
 </head>
 <body class="bg-stone-50 text-joastria-very-dark-gold font-sans">
@@ -79,7 +85,7 @@
                 <nav class="relative">
                     <ul class="flex items-center space-x-6 md:space-x-10">
                         <li>
-                            <a href="#" class="text-lg md:text-xl font-medium text-joastria-very-dark-gold hover:text-joastria-gold transition-colors duration-300">Home</a>
+                            <a href="#" onclick="navigate('home-page')" class="text-lg md:text-xl font-medium text-joastria-very-dark-gold hover:text-joastria-gold transition-colors duration-300">Home</a>
                         </li>
                         <!-- Collections with pop-out menu -->
                         <li class="group relative">
@@ -90,6 +96,21 @@
                                 <li><button onclick="navigate('bows-page')" class="block w-full text-left px-4 py-2 text-joastria-very-dark-gold hover:bg-gray-100 rounded-md transition-colors duration-200">Bows</button></li>
                                 <li><button onclick="navigate('embroideries-page')" class="block w-full text-left px-4 py-2 text-joastria-very-dark-gold hover:bg-gray-100 rounded-md transition-colors duration-200">Embroideries</button></li>
                             </ul>
+                        </li>
+                        <li>
+                            <button onclick="showModal('wishlist-modal')" class="text-lg md:text-xl font-medium text-joastria-very-dark-gold hover:text-red-500 transition-colors duration-300">
+                                <i class="fa-solid fa-heart"></i>
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="showModal('cart-modal')" class="text-lg md:text-xl font-medium text-joastria-very-dark-gold hover:text-green-500 transition-colors duration-300">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="handleContactUs()" class="px-4 py-2 rounded-full text-sm font-medium bg-joastria-gold text-white shadow-lg transform hover:scale-105 transition-transform duration-300">
+                                Contact Us
+                            </button>
                         </li>
                     </ul>
                 </nav>
@@ -173,7 +194,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4">
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
                         <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+1" alt="Pink Silk Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+1')">
-                        <div class="p-4">
+                        <div class="p-4" data-product-id="1" data-product-name="Pink Silk Scrunchie" data-product-price="15.00">
                             <h3 class="text-lg font-semibold text-left mb-1">Pink Silk Scrunchie</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$15.00</p>
                             <div class="flex justify-between items-center">
@@ -190,7 +211,7 @@
                     </div>
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
                         <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+2" alt="Classic Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+2')">
-                        <div class="p-4">
+                        <div class="p-4" data-product-id="2" data-product-name="Classic Scrunchie" data-product-price="12.50">
                             <h3 class="text-lg font-semibold text-left mb-1">Classic Scrunchie</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$12.50</p>
                             <div class="flex justify-between items-center">
@@ -207,7 +228,7 @@
                     </div>
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
                         <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+3" alt="Mint Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+3')">
-                        <div class="p-4">
+                        <div class="p-4" data-product-id="3" data-product-name="Mint Scrunchie" data-product-price="15.00">
                             <h3 class="text-lg font-semibold text-left mb-1">Mint Scrunchie</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$15.00</p>
                             <div class="flex justify-between items-center">
@@ -224,7 +245,7 @@
                     </div>
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
                         <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+4" alt="Ocean Blue Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+4')">
-                        <div class="p-4">
+                        <div class="p-4" data-product-id="4" data-product-name="Ocean Blue Scrunchie" data-product-price="18.00">
                             <h3 class="text-lg font-semibold text-left mb-1">Ocean Blue Scrunchie</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$18.00</p>
                             <div class="flex justify-between items-center">
@@ -241,7 +262,7 @@
                     </div>
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
                         <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+5" alt="Crimson Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+5')">
-                        <div class="p-4">
+                        <div class="p-4" data-product-id="5" data-product-name="Crimson Scrunchie" data-product-price="15.00">
                             <h3 class="text-lg font-semibold text-left mb-1">Crimson Scrunchie</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$15.00</p>
                             <div class="flex justify-between items-center">
@@ -258,7 +279,7 @@
                     </div>
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
                         <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+6" alt="Golden Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+6')">
-                        <div class="p-4">
+                        <div class="p-4" data-product-id="6" data-product-name="Golden Scrunchie" data-product-price="19.50">
                             <h3 class="text-lg font-semibold text-left mb-1">Golden Scrunchie</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$19.50</p>
                             <div class="flex justify-between items-center">
@@ -275,7 +296,7 @@
                     </div>
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
                         <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+7" alt="Lavender Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+7')">
-                        <div class="p-4">
+                        <div class="p-4" data-product-id="7" data-product-name="Lavender Scrunchie" data-product-price="16.00">
                             <h3 class="text-lg font-semibold text-left mb-1">Lavender Scrunchie</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$16.00</p>
                             <div class="flex justify-between items-center">
@@ -292,7 +313,7 @@
                     </div>
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
                         <img src="https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+8" alt="Emerald Scrunchie" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/F4CBE7/B88E5E?text=Product+8')">
-                        <div class="p-4">
+                        <div class="p-4" data-product-id="8" data-product-name="Emerald Scrunchie" data-product-price="17.50">
                             <h3 class="text-lg font-semibold text-left mb-1">Emerald Scrunchie</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$17.50</p>
                             <div class="flex justify-between items-center">
@@ -331,7 +352,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4">
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
                         <img src="https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+A" alt="Linen Headband" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/E8D2C6/B88E5E?text=Product+A')">
-                        <div class="p-4">
+                        <div class="p-4" data-product-id="9" data-product-name="Linen Headband" data-product-price="22.00">
                             <h3 class="text-lg font-semibold text-left mb-1">Linen Headband</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$22.00</p>
                             <div class="flex justify-between items-center">
@@ -348,7 +369,7 @@
                     </div>
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
                         <img src="https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+B" alt="Patterned Band" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/E8D2C6/B88E5E?text=Product+B')">
-                        <div class="p-4">
+                        <div class="p-4" data-product-id="10" data-product-name="Patterned Band" data-product-price="25.00">
                             <h3 class="text-lg font-semibold text-left mb-1">Patterned Band</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$25.00</p>
                             <div class="flex justify-between items-center">
@@ -365,7 +386,7 @@
                     </div>
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
                         <img src="https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+C" alt="Wide Silk Band" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/E8D2C6/B88E5E?text=Product+C')">
-                        <div class="p-4">
+                        <div class="p-4" data-product-id="11" data-product-name="Wide Silk Band" data-product-price="28.00">
                             <h3 class="text-lg font-semibold text-left mb-1">Wide Silk Band</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$28.00</p>
                             <div class="flex justify-between items-center">
@@ -382,7 +403,7 @@
                     </div>
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
                         <img src="https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+D" alt="Turban Headband" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/E8D2C6/B88E5E?text=Product+D')">
-                        <div class="p-4">
+                        <div class="p-4" data-product-id="12" data-product-name="Turban Headband" data-product-price="30.00">
                             <h3 class="text-lg font-semibold text-left mb-1">Turban Headband</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$30.00</p>
                             <div class="flex justify-between items-center">
@@ -421,7 +442,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4">
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
                         <img src="https://placehold.co/400x400/CFB8D8/B88E5E?text=Product+I" alt="Ribbon Hair Bow" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/CFB8D8/B88E5E?text=Product+I')">
-                        <div class="p-4">
+                        <div class="p-4" data-product-id="13" data-product-name="Ribbon Hair Bow" data-product-price="18.00">
                             <h3 class="text-lg font-semibold text-left mb-1">Ribbon Hair Bow</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$18.00</p>
                             <div class="flex justify-between items-center">
@@ -438,7 +459,7 @@
                     </div>
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
                         <img src="https://placehold.co/400x400/CFB8D8/B88E5E?text=Product+J" alt="Satin Bow Set" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/CFB8D8/B88E5E?text=Product+J')">
-                        <div class="p-4">
+                        <div class="p-4" data-product-id="14" data-product-name="Satin Bow Set" data-product-price="25.00">
                             <h3 class="text-lg font-semibold text-left mb-1">Satin Bow Set</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$25.00</p>
                             <div class="flex justify-between items-center">
@@ -477,7 +498,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4">
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
                         <img src="https://placehold.co/400x400/D4B891/B88E5E?text=Product+X" alt="Embroidered Pouch" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/D4B891/B88E5E?text=Product+X')">
-                        <div class="p-4">
+                        <div class="p-4" data-product-id="15" data-product-name="Embroidered Pouch" data-product-price="35.00">
                             <h3 class="text-lg font-semibold text-left mb-1">Embroidered Pouch</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$35.00</p>
                             <div class="flex justify-between items-center">
@@ -494,7 +515,7 @@
                     </div>
                     <div class="product-card bg-white rounded-xl shadow-lg transition-shadow duration-300 overflow-hidden group">
                         <img src="https://placehold.co/400x400/D4B891/B88E5E?text=Product+Y" alt="Floral Embroidery Kit" class="w-full h-auto rounded-t-lg group-hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="showModal('https://placehold.co/800x800/D4B891/B88E5E?text=Product+Y')">
-                        <div class="p-4">
+                        <div class="p-4" data-product-id="16" data-product-name="Floral Embroidery Kit" data-product-price="42.00">
                             <h3 class="text-lg font-semibold text-left mb-1">Floral Embroidery Kit</h3>
                             <p class="text-sm text-left text-joastria-very-dark-gold opacity-80 mb-4">$42.00</p>
                             <div class="flex justify-between items-center">
@@ -523,7 +544,268 @@
         <img id="modal-image" class="max-w-[90%] max-h-[90%] rounded-lg shadow-2xl">
     </div>
     
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-[100] hidden">
+        <div class="bg-white rounded-xl shadow-2xl p-6 w-full max-w-2xl transform scale-95 transition-transform duration-300">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-3xl font-serif font-bold text-joastria-dark-gold">Your Cart</h3>
+                <button onclick="hideModal('cart-modal')" class="text-gray-500 hover:text-gray-800 transition-colors">
+                    <i class="fa-solid fa-xmark fa-xl"></i>
+                </button>
+            </div>
+            <div id="cart-items" class="space-y-4 max-h-96 overflow-y-auto">
+                <!-- Cart items will be rendered here by JavaScript -->
+            </div>
+            <div id="empty-cart-message" class="text-center text-gray-500 italic mt-4 hidden">Your cart is empty.</div>
+            <div class="mt-6 flex justify-end">
+                <button onclick="hideModal('cart-modal')" class="px-6 py-2 bg-joastria-dark-gold text-white rounded-full hover:bg-joastria-very-dark-gold transition-colors">Close</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Wishlist Modal -->
+    <div id="wishlist-modal" class="modal fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-[100] hidden">
+        <div class="bg-white rounded-xl shadow-2xl p-6 w-full max-w-2xl transform scale-95 transition-transform duration-300">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-3xl font-serif font-bold text-joastria-dark-gold">Your Wishlist</h3>
+                <button onclick="hideModal('wishlist-modal')" class="text-gray-500 hover:text-gray-800 transition-colors">
+                    <i class="fa-solid fa-xmark fa-xl"></i>
+                </button>
+            </div>
+            <div id="wishlist-items" class="space-y-4 max-h-96 overflow-y-auto">
+                <!-- Wishlist items will be rendered here by JavaScript -->
+            </div>
+            <div id="empty-wishlist-message" class="text-center text-gray-500 italic mt-4 hidden">Your wishlist is empty.</div>
+            <div class="mt-6 flex justify-end">
+                <button onclick="hideModal('wishlist-modal')" class="px-6 py-2 bg-joastria-dark-gold text-white rounded-full hover:bg-joastria-very-dark-gold transition-colors">Close</button>
+            </div>
+        </div>
+    </div>
+
     <script>
+        let wishlist = [];
+        let cart = [];
+        const productData = {
+          '1': { id: 1, name: "Pink Silk Scrunchie", price: 15.00, image: "https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+1" },
+          '2': { id: 2, name: "Classic Scrunchie", price: 12.50, image: "https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+2" },
+          '3': { id: 3, name: "Mint Scrunchie", price: 15.00, image: "https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+3" },
+          '4': { id: 4, name: "Ocean Blue Scrunchie", price: 18.00, image: "https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+4" },
+          '5': { id: 5, name: "Crimson Scrunchie", price: 15.00, image: "https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+5" },
+          '6': { id: 6, name: "Golden Scrunchie", price: 19.50, image: "https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+6" },
+          '7': { id: 7, name: "Lavender Scrunchie", price: 16.00, image: "https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+7" },
+          '8': { id: 8, name: "Emerald Scrunchie", price: 17.50, image: "https://placehold.co/400x400/F4CBE7/B88E5E?text=Product+8" },
+          '9': { id: 9, name: "Linen Headband", price: 22.00, image: "https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+A" },
+          '10': { id: 10, name: "Patterned Band", price: 25.00, image: "https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+B" },
+          '11': { id: 11, name: "Wide Silk Band", price: 28.00, image: "https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+C" },
+          '12': { id: 12, name: "Turban Headband", price: 30.00, image: "https://placehold.co/400x400/E8D2C6/B88E5E?text=Product+D" },
+          '13': { id: 13, name: "Ribbon Hair Bow", price: 18.00, image: "https://placehold.co/400x400/CFB8D8/B88E5E?text=Product+I" },
+          '14': { id: 14, name: "Satin Bow Set", price: 25.00, image: "https://placehold.co/400x400/CFB8D8/B88E5E?text=Product+J" },
+          '15': { id: 15, name: "Embroidered Pouch", price: 35.00, image: "https://placehold.co/400x400/D4B891/B88E5E?text=Product+X" },
+          '16': { id: 16, name: "Floral Embroidery Kit", price: 42.00, image: "https://placehold.co/400x400/D4B891/B88E5E?text=Product+Y" },
+        };
+
+        // Initialize state from localStorage
+        function initStore() {
+            try {
+                const storedCart = localStorage.getItem('cart');
+                const storedWishlist = localStorage.getItem('wishlist');
+                cart = storedCart ? JSON.parse(storedCart) : [];
+                wishlist = storedWishlist ? JSON.parse(storedWishlist) : [];
+            } catch (error) {
+                console.error("Failed to load state from local storage:", error);
+                cart = [];
+                wishlist = [];
+            }
+        }
+
+        // Save state to localStorage
+        function saveState() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        }
+
+        // Function to handle the "Contact Us" action
+        function handleContactUs() {
+            const subject = "Inquiry about my JoAstria Charms Wishlist and Cart";
+
+            // Format wishlist items into a string
+            const wishlistItems = wishlist.length > 0
+                ? wishlist.map((item) => `- ${item.name} ($${item.price.toFixed(2)})`).join('\n')
+                : "No items in wishlist.";
+
+            // Format cart items into a string
+            const cartItems = cart.length > 0
+                ? cart.map((item) => `- ${item.name} (${item.quantity}) - $${(item.price * item.quantity).toFixed(2)}`).join('\n')
+                : "No items in cart.";
+
+            const body = `Hello JoAstria Charms,\n\nI would like to inquire about the following items from my wishlist and shopping cart.\n\n--- Wishlist Items ---\n${wishlistItems}\n\n--- Cart Items ---\n${cartItems}\n\nI look forward to hearing from you.\n\nBest regards,`;
+
+            // Encode the body and subject for the mailto link
+            const mailtoUrl = `mailto:joastrianna@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            // Open the default email client
+            window.location.href = mailtoUrl;
+        }
+
+        // Function to show a modal
+        function showModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                // Render the content before showing
+                if (modalId === 'wishlist-modal') {
+                    renderWishlist();
+                } else if (modalId === 'cart-modal') {
+                    renderCart();
+                }
+
+                modal.classList.remove('hidden');
+                setTimeout(() => modal.firstElementChild.classList.remove('scale-95'), 10);
+            }
+        }
+
+        // Function to hide a modal
+        function hideModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.firstElementChild.classList.add('scale-95');
+                setTimeout(() => modal.classList.add('hidden'), 300);
+            }
+        }
+
+        // Function to dynamically render the wishlist content
+        function renderWishlist() {
+            const container = document.getElementById('wishlist-items');
+            const emptyMessage = document.getElementById('empty-wishlist-message');
+            container.innerHTML = ''; // Clear existing content
+
+            if (wishlist.length === 0) {
+                emptyMessage.classList.remove('hidden');
+            } else {
+                emptyMessage.classList.add('hidden');
+                wishlist.forEach(item => {
+                    const itemHtml = `
+                        <div class="flex items-center space-x-4 border-b pb-4 last:border-b-0">
+                            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-lg object-cover">
+                            <div class="flex-1">
+                                <h4 class="font-semibold">${item.name}</h4>
+                                <p class="text-joastria-dark-gold font-bold">$${item.price.toFixed(2)}</p>
+                            </div>
+                            <button onclick="removeFromWishlist(${item.id})" class="text-red-500 hover:text-red-700 transition-colors">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                    `;
+                    container.insertAdjacentHTML('beforeend', itemHtml);
+                });
+            }
+        }
+
+        // Function to dynamically render the cart content
+        function renderCart() {
+            const container = document.getElementById('cart-items');
+            const emptyMessage = document.getElementById('empty-cart-message');
+            container.innerHTML = ''; // Clear existing content
+
+            if (cart.length === 0) {
+                emptyMessage.classList.remove('hidden');
+            } else {
+                emptyMessage.classList.add('hidden');
+                cart.forEach(item => {
+                    const itemHtml = `
+                        <div class="flex items-center space-x-4 border-b pb-4 last:border-b-0">
+                            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-lg object-cover">
+                            <div class="flex-1">
+                                <h4 class="font-semibold">${item.name}</h4>
+                                <p class="text-gray-600 text-sm">Quantity: ${item.quantity}</p>
+                                <p class="text-joastria-dark-gold font-bold">$${(item.price * item.quantity).toFixed(2)}</p>
+                            </div>
+                            <button onclick="removeFromCart(${item.id})" class="text-red-500 hover:text-red-700 transition-colors">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                    `;
+                    container.insertAdjacentHTML('beforeend', itemHtml);
+                });
+            }
+        }
+
+        // Function to add an item to the wishlist
+        function addToWishlist(product) {
+            if (!wishlist.some(item => item.id === product.id)) {
+                wishlist.push(product);
+                saveState();
+            }
+        }
+
+        // Function to add an item to the cart
+        function addToCart(product) {
+            const existingItem = cart.find(item => item.id === product.id);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+            saveState();
+        }
+
+        // Function to remove an item from the wishlist
+        function removeFromWishlist(productId) {
+            wishlist = wishlist.filter(item => item.id !== productId);
+            saveState();
+            renderWishlist(); // Re-render the modal
+        }
+
+        // Function to remove an item from the cart
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            saveState();
+            renderCart(); // Re-render the modal
+        }
+
+        // Function to toggle the wishlist icon style
+        function toggleWishlist(buttonElement) {
+            const productCard = buttonElement.closest('.p-4');
+            const productId = productCard.dataset.productId;
+            const product = productData[productId];
+
+            if (wishlist.some(item => item.id === product.id)) {
+                removeFromWishlist(product.id);
+            } else {
+                addToWishlist(product);
+            }
+
+            const icon = buttonElement.querySelector('i');
+            if (icon) {
+                if (icon.classList.contains('text-red-500')) {
+                    icon.classList.remove('text-red-500');
+                    icon.classList.add('text-gray-400');
+                } else {
+                    icon.classList.remove('text-gray-400');
+                    icon.classList.add('text-red-500');
+                }
+            }
+        }
+        
+        // Function to toggle the cart icon style and add item to cart
+        function toggleCart(buttonElement) {
+            const productCard = buttonElement.closest('.p-4');
+            const productId = productCard.dataset.productId;
+            const product = productData[productId];
+
+            addToCart(product);
+            
+            const icon = buttonElement.querySelector('i');
+            if (icon) {
+                 if (icon.classList.contains('text-green-500')) {
+                    icon.classList.remove('text-green-500');
+                    icon.classList.add('text-gray-400');
+                } else {
+                    icon.classList.remove('text-gray-400');
+                    icon.classList.add('text-green-500');
+                }
+            }
+        }
+
         // JavaScript for handling page navigation
         function navigate(pageId) {
             const pages = document.querySelectorAll('section, div[id$="-page"]');
@@ -535,7 +817,7 @@
         }
 
         // Function to show the image modal
-        function showModal(src) {
+        function showImageModal(src) {
             const modal = document.getElementById('image-modal');
             const modalImage = document.getElementById('modal-image');
             modalImage.src = src;
@@ -543,52 +825,21 @@
         }
 
         // Function to hide the image modal
-        function hideModal() {
+        function hideImageModal() {
             const modal = document.getElementById('image-modal');
             modal.classList.add('hidden');
         }
 
-        // Event listener to close the modal when clicking outside the image
+        // Event listener to close the image modal when clicking outside the image
         document.getElementById('image-modal').addEventListener('click', function(event) {
             if (event.target === this) {
-                hideModal();
+                hideImageModal();
             }
         });
 
-        // Function to toggle the wishlist heart icon
-        function toggleWishlist(buttonElement) {
-            const icon = buttonElement.querySelector('i');
-            if (icon) { // Added a check to ensure the icon element exists
-                if (icon.classList.contains('text-gray-400')) {
-                    // If it's a regular (empty) heart, fill it and change color
-                    icon.classList.remove('fa-solid', 'text-gray-400');
-                    icon.classList.add('fa-solid', 'text-red-500');
-                } else {
-                    // If it's a solid heart, make it regular (empty) and change color
-                    icon.classList.remove('fa-solid', 'text-red-500');
-                    icon.classList.add('fa-solid', 'text-gray-400');
-                }
-            }
-        }
-
-        // Function to toggle the cart icon and button text
-        function toggleCart(buttonElement) {
-            const icon = buttonElement.querySelector('i');
-            if (icon) { // Added a check to ensure the icon element exists
-                if (icon.classList.contains('text-gray-400')) {
-                    // Change to checkmark and update color
-                    icon.classList.remove('fa-cart-shopping', 'text-gray-400');
-                    icon.classList.add('fa-cart-shopping', 'text-green-500');
-                } else {
-                    // Change back to shopping cart and original color
-                    icon.classList.remove('fa-cart-shopping', 'text-green-500');
-                    icon.classList.add('fa-cart-shopping', 'text-gray-400');
-                }
-            }
-        }
-
-        // Initially show the home page
+        // Initially show the home page and load state
         window.onload = function() {
+            initStore();
             navigate('home-page');
         };
     </script>
